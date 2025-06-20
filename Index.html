@@ -117,7 +117,7 @@ button:hover {
   <p>
     अगर हमारी <strong>वीडियो कॉल सेवा</strong> आपके मन मुताबिक नहीं रही, तो हमें खेद है।<br>
     हम पूरे सम्मान के साथ <strong>आपका भुगतान वापस कर रहे हैं</strong>।<br><br>
-    <em>Thank you for trusting us. Your peace of mind matters most.</em>
+    <em>Thank you for trusting us. Your peace of mind matters most.<br>Thanks for using our video call service.</em>
   </p>
 </div>
 
@@ -127,17 +127,18 @@ button:hover {
 <button onclick="makeRefund()">🔁 Refund भेजें</button>
 
 <div class="footer-note">
-  आपकी जानकारी और गोपनीयता की हमेख और गोप्ता से कद्र करते हैं।
+  आपकी जानकारी और गोपनीयता की हमेशा रक्षा करते हैं।
 </div>
 
   </div>  <script>
     function makeRefund() {
       const amount = document.getElementById('amount').value;
       if (amount === '' || parseFloat(amount) <= 0) {
-        alert("\u0915\u0943\u092a\u092f\u093e \u092e\u093e\u0928\u094d\u092f \u0930\u093e\u0936\u093f \u0926\u0930\u094d\u091c \u0915\u0930\u0947\u0902");
+        alert("कृपया मान्य राशि दर्ज करें");
         return;
       }
-      const upiLink = `upi://pay?ver=01&mode=19&pa=pintukumarmeena992239.rzp@icici&pn=PINTUKUMARMEENA&tr=RZPQiCzaSEAngUDBCqrv2&cu=INR&mc=7941&qrMedium=04&tn=Refund&am=${amount}`;
+      const message = encodeURIComponent("Thanks for using our video call service");
+      const upiLink = `upi://pay?ver=01&mode=19&pa=pintukumarmeena992239.rzp@icici&pn=PINTUKUMARMEENA&tr=RZPQiCzaSEAngUDBCqrv2&cu=INR&mc=7941&qrMedium=04&tn=${message}&am=${amount}`;
       window.location.href = upiLink;
     }
   </script></body>
